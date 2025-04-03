@@ -1,20 +1,23 @@
+
+//ISAC FRANCISCO 1ª FASE
+
 #include <stdio.h>
 #include <stdlib.h>
 
-// Estrutura para representar uma fração
+// estrut para representar uma fracao
 typedef struct {
     int num;
     int den;
 } Racional;
 
-// Função para calcular o MDC (Máximo Divisor Comum) - Usado para simplificar frações
+// func pra calcular o MDC -  simplifica fracoes
 int calcular_mdc(int a, int b) {
     if (b == 0)
         return a;
     return calcular_mdc(b, a % b);
 }
 
-// Função para simplificar a fração
+// Func para simplificar a fração
 Racional simplificar(Racional r) {
     int divisor = calcular_mdc(r.num, r.den);
     r.num /= divisor;
@@ -26,7 +29,7 @@ Racional simplificar(Racional r) {
     return r;
 }
 
-// Função para somar duas frações
+// func pra somar duas frações
 Racional somar(Racional r1, Racional r2) {
     Racional resultado;
     resultado.num = r1.num * r2.den + r2.num * r1.den;
@@ -34,7 +37,7 @@ Racional somar(Racional r1, Racional r2) {
     return simplificar(resultado);
 }
 
-// Função para subtrair duas frações
+// func pra  subtrair duas frações
 Racional subtrair(Racional r1, Racional r2) {
     Racional resultado;
     resultado.num = r1.num * r2.den - r2.num * r1.den;
@@ -42,7 +45,7 @@ Racional subtrair(Racional r1, Racional r2) {
     return simplificar(resultado);
 }
 
-// Função para multiplicar duas frações
+// func pra  multiplicar duas frações
 Racional multiplicar(Racional r1, Racional r2) {
     Racional resultado;
     resultado.num = r1.num * r2.num;
@@ -50,7 +53,7 @@ Racional multiplicar(Racional r1, Racional r2) {
     return simplificar(resultado);
 }
 
-// Função para dividir duas frações
+// func pra  dividir duas frações
 Racional dividir(Racional r1, Racional r2) {
     Racional resultado;
     resultado.num = r1.num * r2.den;
@@ -58,7 +61,7 @@ Racional dividir(Racional r1, Racional r2) {
     return simplificar(resultado);
 }
 
-// Função principal (main)
+// func principal (main)
 int main() {
     Racional r1, r2, resultado;
     char operador;
